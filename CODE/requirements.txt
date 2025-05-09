@@ -1,0 +1,11 @@
+requests
+bs4
+transformers
+torch
+yfinance
+accelerate>=0.26.0
+matplotlib
+seaborn
+openai
+easydict
+openai

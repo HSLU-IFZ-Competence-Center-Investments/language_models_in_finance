@@ -1,0 +1,7 @@
+Date,Model name,Data scope,RAG,TP,FP,TN,FN,Unclear result in real dataset,Unclear result in artificial dataset,Precision,Recall,Accuracy,F1 Score,Execution time,GPU name
+2025-05-07 10:30:17,gpt-4.1,International,False,58,0,100,42,0,0,1.0000,0.5800,0.7900,0.7342,168.09,Kein GPU gefunden: [Errno 2] No such file or directory: 'nvidia-smi'
+2025-05-07 10:33:13,gpt-4.1,International,True,79,2,98,21,0,0,0.9753,0.7900,0.8850,0.8729,172.93,Kein GPU gefunden: [Errno 2] No such file or directory: 'nvidia-smi'
+2025-05-07 10:35:54,gpt-4.1,Switzerland,False,44,4,96,56,0,0,0.9167,0.4400,0.7000,0.5946,158.02,Kein GPU gefunden: [Errno 2] No such file or directory: 'nvidia-smi'
+2025-05-07 10:38:48,gpt-4.1,Switzerland,True,76,4,96,24,0,0,0.9500,0.7600,0.8600,0.8444,171.86,Kein GPU gefunden: [Errno 2] No such file or directory: 'nvidia-smi'
+2025-05-07 10:41:12,gpt-4.1,Switzerland Nebenwerte,False,4,0,100,96,0,0,1.0000,0.0400,0.5200,0.0769,140.68,Kein GPU gefunden: [Errno 2] No such file or directory: 'nvidia-smi'
+2025-05-07 10:43:56,gpt-4.1,Switzerland Nebenwerte,True,9,1,99,91,0,0,0.9000,0.0900,0.5400,0.1636,161.83,Kein GPU gefunden: [Errno 2] No such file or directory: 'nvidia-smi'

@@ -1,0 +1,59 @@
+Date,Model name,Data scope,RAG,TP,FP,TN,FN,Unclear result in real dataset,Unclear result in artificial dataset,Precision,Recall,Accuracy,F1 Score,Execution time,GPU name
+01.05.2025 18:35,TinyLlama/TinyLlama_v1.1,International,FALSE,81,89,0,0,19,11,0.4765,1,0.4765,0.6454,75.82,NVIDIA A100-SXM4-40GB
+01.05.2025 18:37,TinyLlama/TinyLlama_v1.1,International,TRUE,78,85,0,2,20,15,0.4785,0.975,0.4727,0.642,84.94,NVIDIA A100-SXM4-40GB
+01.05.2025 18:38,TinyLlama/TinyLlama_v1.1,Switzerland,FALSE,77,84,0,0,23,16,0.4783,1,0.4783,0.6471,76.23,NVIDIA A100-SXM4-40GB
+01.05.2025 18:39,TinyLlama/TinyLlama_v1.1,Switzerland,TRUE,69,80,0,0,31,20,0.4631,1,0.4631,0.633,83.67,NVIDIA A100-SXM4-40GB
+01.05.2025 18:41,TinyLlama/TinyLlama_v1.1,Switzerland Nebenwerte,FALSE,83,78,0,1,16,22,0.5155,0.9881,0.5123,0.6776,75.99,NVIDIA A100-SXM4-40GB
+01.05.2025 18:42,TinyLlama/TinyLlama_v1.1,Switzerland Nebenwerte,TRUE,73,79,0,1,26,21,0.4803,0.9865,0.4771,0.646,80.95,NVIDIA A100-SXM4-40GB
+01.05.2025 18:46,google/gemma-3-4b-it,International,FALSE,61,31,69,39,0,0,0.663,0.61,0.65,0.6354,142.79,NVIDIA A100-SXM4-40GB
+01.05.2025 18:48,google/gemma-3-4b-it,International,TRUE,89,25,75,11,0,0,0.7807,0.89,0.82,0.8318,89.94,NVIDIA A100-SXM4-40GB
+01.05.2025 18:50,google/gemma-3-4b-it,Switzerland,FALSE,64,40,60,36,0,0,0.6154,0.64,0.62,0.6275,133.65,NVIDIA A100-SXM4-40GB
+01.05.2025 18:52,google/gemma-3-4b-it,Switzerland,TRUE,90,33,67,10,0,0,0.7317,0.9,0.785,0.8072,88.38,NVIDIA A100-SXM4-40GB
+01.05.2025 18:54,google/gemma-3-4b-it,Switzerland Nebenwerte,FALSE,53,46,54,47,0,0,0.5354,0.53,0.535,0.5327,130.81,NVIDIA A100-SXM4-40GB
+01.05.2025 18:55,google/gemma-3-4b-it,Switzerland Nebenwerte,TRUE,69,32,68,31,0,0,0.6832,0.69,0.685,0.6866,77.29,NVIDIA A100-SXM4-40GB
+01.05.2025 19:00,microsoft/Phi-4-mini-instruct,International,FALSE,15,11,89,85,0,0,0.5769,0.15,0.52,0.2381,119.22,NVIDIA A100-SXM4-40GB
+01.05.2025 19:01,microsoft/Phi-4-mini-instruct,International,TRUE,77,12,88,23,0,0,0.8652,0.77,0.825,0.8148,56.8,NVIDIA A100-SXM4-40GB
+01.05.2025 19:03,microsoft/Phi-4-mini-instruct,Switzerland,FALSE,5,2,98,95,0,0,0.7143,0.05,0.515,0.0935,119.6,NVIDIA A100-SXM4-40GB
+01.05.2025 19:04,microsoft/Phi-4-mini-instruct,Switzerland,TRUE,71,3,97,29,0,0,0.9595,0.71,0.84,0.8161,59,NVIDIA A100-SXM4-40GB
+01.05.2025 19:06,microsoft/Phi-4-mini-instruct,Switzerland Nebenwerte,FALSE,1,1,99,99,0,0,0.5,0.01,0.5,0.0196,119.93,NVIDIA A100-SXM4-40GB
+01.05.2025 19:07,microsoft/Phi-4-mini-instruct,Switzerland Nebenwerte,TRUE,31,1,99,69,0,0,0.9688,0.31,0.65,0.4697,58.23,NVIDIA A100-SXM4-40GB
+01.05.2025 19:11,HuggingFaceH4/zephyr-7b-beta,International,FALSE,23,0,100,77,0,0,1,0.23,0.615,0.374,115.45,NVIDIA A100-SXM4-40GB
+01.05.2025 19:13,HuggingFaceH4/zephyr-7b-beta,International,TRUE,67,0,100,33,0,0,1,0.67,0.835,0.8024,125.7,NVIDIA A100-SXM4-40GB
+01.05.2025 19:15,HuggingFaceH4/zephyr-7b-beta,Switzerland,FALSE,4,1,99,96,0,0,0.8,0.04,0.515,0.0762,116.83,NVIDIA A100-SXM4-40GB
+01.05.2025 19:17,HuggingFaceH4/zephyr-7b-beta,Switzerland,TRUE,68,2,98,32,0,0,0.9714,0.68,0.83,0.8,124.18,NVIDIA A100-SXM4-40GB
+01.05.2025 19:19,HuggingFaceH4/zephyr-7b-beta,Switzerland Nebenwerte,FALSE,0,0,100,100,0,0,0,0,0.5,0,117.15,NVIDIA A100-SXM4-40GB
+01.05.2025 19:21,HuggingFaceH4/zephyr-7b-beta,Switzerland Nebenwerte,TRUE,15,1,99,84,1,0,0.9375,0.1515,0.5729,0.2609,119.69,NVIDIA A100-SXM4-40GB
+01.05.2025 19:25,mistralai/Mistral-7B-Instruct-v0.3,International,FALSE,62,29,71,38,0,0,0.6813,0.62,0.665,0.6492,64.79,NVIDIA A100-SXM4-40GB
+01.05.2025 19:25,mistralai/Mistral-7B-Instruct-v0.3,International,TRUE,80,20,80,20,0,0,0.8,0.8,0.8,0.8,31.62,NVIDIA A100-SXM4-40GB
+01.05.2025 19:27,mistralai/Mistral-7B-Instruct-v0.3,Switzerland,FALSE,56,25,75,44,0,0,0.6914,0.56,0.655,0.6188,59.65,NVIDIA A100-SXM4-40GB
+01.05.2025 19:27,mistralai/Mistral-7B-Instruct-v0.3,Switzerland,TRUE,87,19,81,13,0,0,0.8208,0.87,0.84,0.8447,33.04,NVIDIA A100-SXM4-40GB
+01.05.2025 19:28,mistralai/Mistral-7B-Instruct-v0.3,Switzerland Nebenwerte,FALSE,46,31,69,54,0,0,0.5974,0.46,0.575,0.5198,59.24,NVIDIA A100-SXM4-40GB
+01.05.2025 19:29,mistralai/Mistral-7B-Instruct-v0.3,Switzerland Nebenwerte,TRUE,39,20,80,61,0,0,0.661,0.39,0.595,0.4906,34.47,NVIDIA A100-SXM4-40GB
+01.05.2025 19:59,deepseek-ai/DeepSeek-R1-Distill-Qwen-14B,International,FALSE,5,0,100,95,0,0,1,0.05,0.525,0.0952,47.31,NVIDIA A100-SXM4-40GB
+01.05.2025 20:00,deepseek-ai/DeepSeek-R1-Distill-Qwen-14B,International,TRUE,77,1,99,23,0,0,0.9872,0.77,0.88,0.8652,88.25,NVIDIA A100-SXM4-40GB
+01.05.2025 20:01,deepseek-ai/DeepSeek-R1-Distill-Qwen-14B,Switzerland,FALSE,0,0,100,100,0,0,0,0,0.5,0,46.17,NVIDIA A100-SXM4-40GB
+01.05.2025 20:03,deepseek-ai/DeepSeek-R1-Distill-Qwen-14B,Switzerland,TRUE,84,1,99,16,0,0,0.9882,0.84,0.915,0.9081,79.4,NVIDIA A100-SXM4-40GB
+01.05.2025 20:03,deepseek-ai/DeepSeek-R1-Distill-Qwen-14B,Switzerland Nebenwerte,FALSE,0,0,100,100,0,0,0,0,0.5,0,46.57,NVIDIA A100-SXM4-40GB
+01.05.2025 20:05,deepseek-ai/DeepSeek-R1-Distill-Qwen-14B,Switzerland Nebenwerte,TRUE,38,2,98,62,0,0,0.95,0.38,0.68,0.5429,66.98,NVIDIA A100-SXM4-40GB
+02.05.2025 07:19,meta-llama/Llama-3.1-8B-Instruct,International,FALSE,1,0,100,99,0,0,1,0.01,0.505,0.0198,111.17,NVIDIA A100-SXM4-40GB
+02.05.2025 07:21,meta-llama/Llama-3.1-8B-Instruct,International,TRUE,69,0,100,31,0,0,1,0.69,0.845,0.8166,102.39,NVIDIA A100-SXM4-40GB
+02.05.2025 07:23,meta-llama/Llama-3.1-8B-Instruct,Switzerland,FALSE,1,0,100,99,0,0,1,0.01,0.505,0.0198,112.7,NVIDIA A100-SXM4-40GB
+02.05.2025 07:24,meta-llama/Llama-3.1-8B-Instruct,Switzerland,TRUE,70,0,100,30,0,0,1,0.7,0.85,0.8235,97.57,NVIDIA A100-SXM4-40GB
+02.05.2025 07:26,meta-llama/Llama-3.1-8B-Instruct,Switzerland Nebenwerte,FALSE,0,0,100,100,0,0,0,0,0.5,0,112.44,NVIDIA A100-SXM4-40GB
+02.05.2025 07:28,meta-llama/Llama-3.1-8B-Instruct,Switzerland Nebenwerte,TRUE,15,0,100,85,0,0,1,0.15,0.575,0.2609,94.92,NVIDIA A100-SXM4-40GB
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
