@@ -26,18 +26,13 @@ folder_path = 'https://raw.githubusercontent.com/HSLU-IFZ-Competence-Center-Inve
 # make sure that for running model there is uncommented max_chars_total, because this changes with a model
 # Models:
 # TinyLlama/TinyLlama_v1.1 — Max tokens: 2048, Max characters: ~6,000–8,000
-# google/gemma-3-4b-it — Max tokens: 8192, Max characters: ~25,000–32,000
 # microsoft/Phi-4-mini-instruct — Max tokens: 4000, Max characters: ~12,000–16,000
+# google/gemma-3-4b-it — Max tokens: 8192, Max characters: ~25,000–32,000
 # HuggingFaceH4/zephyr-7b-beta — Max tokens: 32768, Max characters: ~100,000–130,000
 # mistralai/Mistral-7B-Instruct-v0.3 — Max tokens: 32768, Max characters: ~100,000–130,000
-# mistralai/Mixtral-8x22B-Instruct-v0.1 — Max tokens: 32768, Max characters: ~100,000–130,000
+# meta-llama/Llama-3.1-8B-Instruct — Max tokens: 128,000, Max characters: ~512,000
 # deepseek-ai/DeepSeek-R1-Distill-Qwen-14B — Max tokens: 128,000, Max characters: 512,000
-
-# To do:
-# meta-llama/Llama-4-Scout-17B-16E-Instruct — Max tokens: Unknown (likely 32k), Max characters: ~100,000–130,000
-# meta-llama/Llama-3.1-8B-Instruct — Max tokens: TBD (likely 8k–16k), Max characters: ~25,000–50,000
-# mistralai/Mixtral-8x7B-Instruct-v0.1 — Max tokens: 32768, Max characters: ~100,000–130,000
-
+# mistralai/Mixtral-8x22B-Instruct-v0.1 — Max tokens: 32768, Max characters: ~100,000–130,000
 
 # # ======= Model import =======
 login("write your huggingface token here")

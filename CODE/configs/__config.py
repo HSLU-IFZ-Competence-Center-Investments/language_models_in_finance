@@ -5,7 +5,7 @@ from easydict import EasyDict as edict
 
 #%% for DEV
 
-PROJECT_NAME = 'AI_and_Impact_Investing' # must be same as project folder name
+PROJECT_NAME = 'language_models_in_finance' # must be same as project folder name
 
 SUPPORTED_MODELS = []
 
