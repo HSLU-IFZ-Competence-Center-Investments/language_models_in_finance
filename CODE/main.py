@@ -1,6 +1,6 @@
 import pandas as pd
 import urllib
-import random
+import random 
 import re
 import csv
 from datetime import datetime
@@ -15,17 +15,16 @@ import unicodedata
 from tqdm import tqdm
 import sys
 from huggingface_hub import login
-from google.cloud import storage
 from io import StringIO
 import subprocess
 
 logging.getLogger("transformers").setLevel(logging.ERROR)
 
-folder_path = 'https://raw.githubusercontent.com/HSLU-IFZ-Competence-Center-Investments/compliance_data_set/refs/heads/main/'
+folder_path = './data/'
 
 # make sure that for running model there is uncommented max_chars_total, because this changes with a model
 # Models:
-# TinyLlama/TinyLlama_v1.1 — Max tokens: 2048, Max characters: ~6,000–8,000
+# TinyLlama/TinyLlama_v1.1— Max tokens: 2048, Max characters: ~6,000–8,000
 # microsoft/Phi-4-mini-instruct — Max tokens: 4000, Max characters: ~12,000–16,000
 # google/gemma-3-4b-it — Max tokens: 8192, Max characters: ~25,000–32,000
 # HuggingFaceH4/zephyr-7b-beta — Max tokens: 32768, Max characters: ~100,000–130,000
@@ -34,9 +33,10 @@ folder_path = 'https://raw.githubusercontent.com/HSLU-IFZ-Competence-Center-Inve
 # deepseek-ai/DeepSeek-R1-Distill-Qwen-14B — Max tokens: 128,000, Max characters: 512,000
 # mistralai/Mixtral-8x22B-Instruct-v0.1 — Max tokens: 32768, Max characters: ~100,000–130,000
 
-# # ======= Model import =======
-login("write your huggingface token here")
-model_name = "meta-llama/Llama-3.1-8B-Instruct"
+
+# # # ======= Model import =======
+# login("insert your token here")
+model_name = "TinyLlama/TinyLlama_v1.1"
 # tokenizer = AutoTokenizer.from_pretrained(model_name)
 device = "cuda" if torch.cuda.is_available() else "cpu"
 # model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype="auto").to(device)
@@ -49,8 +49,8 @@ llm_pipeline = pipeline(
     max_new_tokens=10,
     do_sample=False
 )
-max_chars_total = 25000 # See max characters per model above
-# # ===================================
+max_chars_total = 2048 * 3 # See max characters per model above
+# # # ===================================
 
 def get_gpu_name():
     try:
@@ -63,7 +63,7 @@ def get_gpu_name():
         return f"Kein GPU gefunden: {e}"
 
 gpu_name = get_gpu_name()
-print("Verwendete GPU:", gpu_name)
+
 
 class Person:
     def __init__(self, full_name, first_name, last_name, job_title, primary_company, ticker):
@@ -300,19 +300,17 @@ def calculate_false_negatives(data, answers):
     return sum(1 for p, is_member in answers if p.full_name in known_names and not is_member)
 
 def get_filtered_outputs(dataset_type):
-    base_url = (
-        "https://raw.githubusercontent.com/HSLU-IFZ-Competence-Center-Investments/compliance_data_set/main/Raw%20Data%20Strict/"
-    )
-
+    base_url = "./data_offline/"
+    # here you should instert path to your files
     if dataset_type == "international":
-        real_file = "CEOs%20und%20BoDs%20International_offline_raw_documents_international_real_strict.csv"
-        synthetic_file = "syntetic_CEOs%20und%20BoDs%20International_offline_raw_documents_international_synthetic_strict.csv"
+        real_file = "CEOs_und_BoDs_International_offline_raw_documents_international_real_strict.csv"
+        synthetic_file = "syntetic_CEOs_und_BoDs_International_offline_raw_documents_international_synthetic_strict.csv"
     elif dataset_type == "switzerland":
-        real_file = "Namensliste%20CEOs%20und%20BoDs%20Schweiz_offline_raw_documents_real_strict.csv"
-        synthetic_file = "syntetic_CEOs%20und%20BoDs%20Schweiz_offline_raw_documents_synthetic_strict.csv"
+        real_file = "Namensliste_CEOs_und_BoDs_Schweiz_offline_raw_documents_real_strict.csv"
+        synthetic_file = "syntetic_CEO_und_BoD_Schweiz_offline_raw_documents_synthetic_strict.csv"
     elif dataset_type == "switzerland_nw":
-        real_file = "Namensliste%20CEOs%20und%20BoDs%20Nebenwerte%20Schweiz_offline_raw_documents_Nebenwerte_real_strict.csv"
-        synthetic_file = "syntetic_CEOs%20und%20BoDs%20Nebenwerte%20Schweiz_offline_raw_documents_Nebenwerte_synthetic_strict.csv"
+        real_file = "Namensliste_CEO_und_BoD_Nebenwerte_Schweiz_offline_raw_documents_Nebenwerte_real_strict.csv"
+        synthetic_file = "syntetic_CEO_und_BoD_Nebenwerte_Schweiz_offline_raw_documents_Nebenwerte_synthetic_strict.csv"
     else:
         raise ValueError("Invalid dataset_type. Choose from: 'international', 'switzerland', 'switzerland_nw'.")
 
@@ -347,7 +345,7 @@ def log_metrics(TP, FP, TN, FN, model_name, dataset_type, rag, execution_time, u
     print(row)
 
     # The code below is to save in google drive results
-    file_name = "/content/drive/MyDrive/Colab Notebooks/experiment_results.csv"
+    file_name = "./results/experiment_results.csv"
 
     # Check if the file exists
     file_exists = False
@@ -358,7 +356,7 @@ def log_metrics(TP, FP, TN, FN, model_name, dataset_type, rag, execution_time, u
         file_exists = False
 
     # Open the file in append mode and write the row
-    output_dir = "/content/drive/MyDrive/Colab Notebooks"
+    output_dir = "./results/"
     os.makedirs(output_dir, exist_ok=True)
     file_name = os.path.join(output_dir, "experiment_results.csv")
 
@@ -384,15 +382,16 @@ def check_for_unclear_results(data):
 
 def process_data(dataset_type, rag, model_name, filtered_output_real, filtered_output_synthetic):
     start = time.perf_counter()
+    # here you should instert path to your files
     if dataset_type == "international":
-        real_data = load_data("CEOs und BoDs International.csv")
-        artifical_data = load_data("syntetic_CEOs und BoDs International.csv")
+        real_data = load_data("CEOs_und_BoDs_International.csv")
+        artifical_data = load_data("syntetic_CEOs_und_BoDs_International.csv")
     elif dataset_type == "switzerland":
-        real_data = load_data("Namensliste CEOs und BoDs Schweiz.csv")
-        artifical_data = load_data("syntetic_CEOs und BoDs Schweiz.csv")
+        real_data = load_data("Namensliste_CEOs_und_BoDs_Schweiz.csv")
+        artifical_data = load_data("syntetic_CEOs_und_BoDs_Schweiz.csv")
     elif dataset_type == "switzerland_nw":  # Nebenwerte
-        real_data = load_data("Namensliste CEOs und BoDs Nebenwerte Schweiz.csv")
-        artifical_data = load_data("syntetic_CEOs und BoDs Nebenwerte Schweiz.csv")
+        real_data = load_data("Namensliste_CEOs_und_BoDs_Nebenwerte_Schweiz.csv")
+        artifical_data = load_data("syntetic_CEOs_und_BoDs_Nebenwerte_Schweiz.csv")
     else:
         raise ValueError("Invalid dataset_type. Choose from: 'international', 'switzerland', 'switzerland_nw'.")
 
@@ -414,12 +413,8 @@ def process_data(dataset_type, rag, model_name, filtered_output_real, filtered_o
     print(f"Execution time: {execution_time:.2f} seconds")
     log_metrics(TP, FP, TN, FN, model_name, dataset_type, rag, execution_time, unclear_results_rd, unclear_results_ad)
 
-dataset_type = "international"  # "international", "switzerland" or switzerland_nw"
 
-# First get the filtered documents
-filtered_output_real, filtered_output_synthetic = get_filtered_outputs(dataset_type)
-
-# # List of dataset types and RAG options to iterate over
+# List of dataset types and RAG options to iterate over
 dataset_types = ["international", "switzerland", "switzerland_nw"]
 rag_options = [False, True]
 
