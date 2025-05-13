@@ -329,7 +329,7 @@ def get_filtered_outputs(dataset_type):
 
     return filtered_output_real, filtered_output_synthetic
 
-def log_metrics(TP, FP, TN, FN, model_name, dataset_type, rag, execution_time):
+def log_metrics(TP, FP, TN, FN, model_name, dataset_type, rag, execution_time, unclear_results_rd, unclear_results_ad):
     gpu_name = get_gpu_name()
     if dataset_type == "international":
         list_type = "International"
@@ -346,9 +346,9 @@ def log_metrics(TP, FP, TN, FN, model_name, dataset_type, rag, execution_time):
     f1_score = (2 * precision * recall) / (precision + recall) if (precision + recall) != 0 else 0
 
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    row = [current_time, model_name, list_type, rag, TP, FP, TN, FN, f"{precision:.4f}", f"{recall:.4f}", f"{accuracy:.4f}", f"{f1_score:.4f}", f"{execution_time:.2f}", gpu_name]
+    row = [current_time, model_name, list_type, rag, TP, FP, TN, FN, unclear_results_rd, unclear_results_ad, f"{precision:.4f}", f"{recall:.4f}", f"{accuracy:.4f}", f"{f1_score:.4f}", f"{execution_time:.2f}", gpu_name]
     print()
-    print("Date, Model name, Data scope, RAG, TP, FP, TN, FN, Precision, Recall, Accuracy, F1 Score, Execution time, GPU Name")
+    print("Date, Model name, Data scope, RAG, TP, FP, TN, FN, Unclear result in real dataset, Unclear result in artificial dataset Precision , Recall, Accuracy, F1 Score, Execution time, GPU Name")
     print(row)
 
     # The code below is to save in google drive results
@@ -372,12 +372,20 @@ def log_metrics(TP, FP, TN, FN, model_name, dataset_type, rag, execution_time):
 
         # Write the header if the file is empty (first time writing)
         if not file_exists:
-            writer.writerow(["Date", "Model name", "Data scope", "RAG", "TP", "FP", "TN", "FN", "Precision", "Recall", "Accuracy", "F1 Score", "Execution time", "GPU name"])
+            writer.writerow(["Date", "Model name", "Data scope", "RAG", "TP", "FP", "TN", "FN", "Unclear result in real dataset", "Unclear result in artificial dataset", "Precision", "Recall", "Accuracy", "F1 Score", "Execution time", "GPU name"])
 
         # Append the data row
         writer.writerow(row)
 
     print(f"Metrics logged to {file_name}")
+
+def check_for_unclear_results(data):
+    cnt = 0
+    for _, is_member in data:
+        if is_member == None:
+            cnt += 1
+
+    return cnt
 
 def process_data(dataset_type, rag, model_name, filtered_output_real, filtered_output_synthetic):
     start = time.perf_counter()
@@ -401,11 +409,15 @@ def process_data(dataset_type, rag, model_name, filtered_output_real, filtered_o
     TN = calculate_true_negatives(answers_artifical_data)
     FN = calculate_false_negatives(real_data, answers_real_data)
 
+    unclear_results_rd = check_for_unclear_results(answers_real_data)
+    unclear_results_ad = check_for_unclear_results(answers_artifical_data)
+
+
     end = time.perf_counter()
     execution_time = end - start
 
     print(f"Execution time: {execution_time:.2f} seconds")
-    log_metrics(TP, FP, TN, FN, model_name, dataset_type, rag, execution_time)
+    log_metrics(TP, FP, TN, FN, model_name, dataset_type, rag, execution_time, unclear_results_rd, unclear_results_ad)
 
 dataset_type = "international"  # "international", "switzerland" or switzerland_nw"
 

@@ -330,7 +330,7 @@ def plot_rag_combined_new(df):
     target_scopes = ['International', 'Switzerland', 'Switzerland Nebenwerte']
     font_prop = font_manager.FontProperties(size=18)  # or whatever size you want
 
-    output_folder = './plots_rag_combined'
+    output_folder = './plots/'
     os.makedirs(output_folder, exist_ok=True)
 
     n_models = len(model_names)
@@ -432,6 +432,6 @@ if __name__ == "__main__":
 
 
     # plot_rag_combined_new(df)
-    plot_compare_f1(df)
+    # plot_compare_f1(df)
     # plot_runtime(df)
     # plot_fn_comparison(data, True)
