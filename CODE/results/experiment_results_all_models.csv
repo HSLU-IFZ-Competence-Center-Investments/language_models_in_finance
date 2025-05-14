@@ -53,8 +53,10 @@ Date,Model name,Data scope,RAG,TP,FP,TN,FN,Unclear result in real dataset,Unclea
 07.05.2025 10:38,gpt-4.1,Switzerland,TRUE,76,4,96,24,0,0,0.9500,0.7600,0.8600,0.8444,171.86,Kein GPU gefunden: [Errno 2] No such file or directory: 'nvidia-smi'
 07.05.2025 10:41,gpt-4.1,Switzerland Nebenwerte,FALSE,4,0,100,96,0,0,1.0000,0.0400,0.5200,0.0769,140.68,Kein GPU gefunden: [Errno 2] No such file or directory: 'nvidia-smi'
 07.05.2025 10:43,gpt-4.1,Switzerland Nebenwerte,TRUE,9,1,99,91,0,0,0.9000,0.0900,0.5400,0.1636,161.83,Kein GPU gefunden: [Errno 2] No such file or directory: 'nvidia-smi'
-06.05.2025 10:42,Mixtral-8x22B-Instruct-v0.1,International,False,49,3,97,51,0,0,0.9423,0.4900,0.7300,0.6447,6475.62,NVIDIA GH200 480GB
-07.05.2025 07:21,Mixtral-8x22B-Instruct-v0.1,International,True,83,7,93,17,0,0,0.9222,0.8300,0.8800,0.8737,3821.30,NVIDIA GH200 480GB
-07.05.2025 09:40,Mixtral-8x22B-Instruct-v0.1,Switzerland,False,36,3,97,64,0,0,0.9231,0.3600,0.6650,0.5180,7347.69,NVIDIA GH200 480GB
-07.05.2025 11:54,Mixtral-8x22B-Instruct-v0.1,Switzerland,True,89,5,95,11,0,0,0.9468,0.8900,0.9200,0.9175,4247.39,NVIDIA GH200 480GB
-07.05.2025 14:53,Mixtral-8x22B-Instruct-v0.1,Switzerland Nebenwerte,True,56,7,93,44,0,0,0.8889,0.5600,0.7450,0.6871,4747.89,NVIDIA GH200 480GB
+06.05.2025 10:42,Mixtral-8x22B-Instruct-v0.1,International,FALSE,49,3,97,51,0,0,0.9423,0.4900,0.7300,0.6447,6475.62,NVIDIA GH200 480GB
+07.05.2025 07:21,Mixtral-8x22B-Instruct-v0.1,International,TRUE,83,7,93,17,0,0,0.9222,0.8300,0.8800,0.8737,3821.30,NVIDIA GH200 480GB
+07.05.2025 09:40,Mixtral-8x22B-Instruct-v0.1,Switzerland,FALSE,36,3,97,64,0,0,0.9231,0.3600,0.6650,0.5180,7347.69,NVIDIA GH200 480GB
+07.05.2025 11:54,Mixtral-8x22B-Instruct-v0.1,Switzerland,TRUE,89,5,95,11,0,0,0.9468,0.8900,0.9200,0.9175,4247.39,NVIDIA GH200 480GB
+07.05.2025 14:53,Mixtral-8x22B-Instruct-v0.1,Switzerland Nebenwerte,TRUE,56,7,93,44,0,0,0.8889,0.5600,0.7450,0.6871,4747.89,NVIDIA GH200 480GB
+14.05.2025 09:51,Mixtral-8x22B-Instruct-v0.1,Switzerland Nebenwerte,FALSE,7,3,97,93,0,0,0.7000,0.0700,0.5200,0.1273,8771.37,NVIDIA GH200 480GB
+

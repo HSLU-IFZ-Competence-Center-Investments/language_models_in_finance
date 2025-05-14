@@ -188,9 +188,9 @@ def plot_compare_f1(df):
         plt.savefig(f'./plots/plots_f1_comparison_{scope.lower().replace(" ", "_")}_scope.png', dpi=300)
         plt.close()
 
-def plot_runtime(df):
+def plot_runtime(df, rag):
     # Filter only RAG = True
-    df_rag_true = df[df['RAG'] == True]
+    df_rag_true = df[df['RAG'] == rag]
     sns.set(style="whitegrid")
     plt.figure(figsize=(12, 6))
     # Scatter plot: color by Model, shape by Scope
@@ -222,7 +222,7 @@ def plot_runtime(df):
         text.set_fontproperties(font_prop_legend)
 
     plt.tight_layout()
-    plt.savefig('./plots/execution_time_vs_f1_rag_true_by_model_color.png', dpi=300)
+    plt.savefig(f'./plots/execution_time_vs_f1_rag_{str(rag).replace(" ", "_").lower()}_by_model_color.png', dpi=300)
     plt.close()
 
 
@@ -240,6 +240,7 @@ def heatmap(data, include_rag=True):
 
         # Your custom color palette
     custom_colors = ['#f0f0f0','#daeef3', '#bae0ea', '#77C5D8', '#449dc2', '#206a8a']
+    metric_df = metric_df.reindex(model_names)
     
     # Create a custom colormap using your colors
     custom_cmap = LinearSegmentedColormap.from_list("custom_cmap", custom_colors)
@@ -257,7 +258,7 @@ def plot_fp_comparison(data, isRag):
     # Convert EvalResult list to DataFrame
     df = pd.DataFrame([r.__dict__ for r in data])
     df = df[df['Data_scope'] == 'International']
-
+    font_prop = font_manager.FontProperties(size=14)  # or whatever size you want
 
     # Filter data based on the isRag flag
     if isRag:
@@ -281,13 +282,15 @@ def plot_fp_comparison(data, isRag):
     colors = [color_map[model] for model in models]
 
     # Plotting
-    plt.figure(figsize=(12, 6))
-    sns.barplot(data=fp_comparison, x='Model_name', y='FP', hue='Model_name', palette=color_map, legend=False)
+    plt.figure(figsize=(12, 10))
+    ax = sns.barplot(data=fp_comparison, x='Model_name', y='FP', hue='Model_name', palette=color_map, legend=False, order=model_names)
 
-    plt.title(f'Comparison of False Positives ({rag_status})', fontsize=16)
-    plt.xlabel('Model Name', fontsize=14)
-    plt.ylabel('False Positives', fontsize=14)
-    plt.xticks(rotation=45, ha='right')
+    # plt.title(f'Comparison of False Positives ({rag_status})', fontsize=16)
+    plt.xlabel('Model Name', fontsize=14, fontproperties=font_prop)
+    plt.ylabel('False Positives', fontsize=14, fontproperties=font_prop)
+    plt.xticks(rotation=45, ha='right', fontproperties=font_prop)
+    for container in ax.containers:
+        ax.bar_label(container, fmt='%d', padding=3, fontproperties=font_prop)
 
     # Save the plot
     plt.tight_layout()
@@ -330,7 +333,7 @@ def plot_rag_combined_new(df):
     target_scopes = ['International', 'Switzerland', 'Switzerland Nebenwerte']
     font_prop = font_manager.FontProperties(size=18)  # or whatever size you want
 
-    output_folder = './plots/'
+    output_folder = './plots_rag_combined'
     os.makedirs(output_folder, exist_ok=True)
 
     n_models = len(model_names)
@@ -426,12 +429,13 @@ if __name__ == "__main__":
     # Convert dataclass list to DataFrame
     df = pd.DataFrame([vars(r) for r in data])
 
-    # we re not using these plots
     # heatmap(data)
     # plot_fp_comparison(data, True)
-
+    # plot_fp_comparison(data, False)
 
     # plot_rag_combined_new(df)
     # plot_compare_f1(df)
-    # plot_runtime(df)
+    plot_runtime(df, True)
+
     # plot_fn_comparison(data, True)
+    # plot_fn_comparison(data, False)
