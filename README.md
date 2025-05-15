@@ -1,6 +1,6 @@
 # Language Models in Finance
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/DATA/Images/Cover_01.jpg?raw=true" width="100%" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/language_models_in_finance/blob/main/DATA/Images/Cover_01.jpg?raw=true" width="100%" />
 
 ## Initial Situation
 The rise of artificial intelligence (AI) and natural language processing (NLP), particularly through language models (LMs), is enabling new ways for financial institutions to process information and make decisions more efficiently. In regulated sectors like finance, LMs offer the potential to automate tasks such as compliance monitoring while maintaining accuracy and ensuring data privacy. One key use case is the monitoring of Politically Exposed Persons (PEPs), where LMs can reduce manual effort and flag risks in real time by cross-referencing internal and external data. These capabilities help institutions meet regulatory standards, prevent fraud, and avoid reputational damage.
@@ -25,7 +25,7 @@ Mode B (Retrieval-Augmented Generation, RAG) employs a complete RAG pipeline and
 6) LM: The model processes the prompt and responds with a binary decision *Yes* or *No* based on its internal knowledge and the context provided.
 7) Output logging: The model’s output and the corresponding input name are logged to ensure traceability, enabling later evaluation, analysis, and auditability of the inference results.
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/DATA/Images/Prototypes_Modes.jpg?raw=true" width="100%" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/language_models_in_finance/blob/main/DATA/Images/Prototypes_Modes.jpg?raw=true" width="100%" />
 
 *Note: General architecture of the prototype.*
 
@@ -47,7 +47,7 @@ To ensure a transparent and structured selection process, models were chosen bas
 
 The evaluation methodology is illustrated in the figure below. To evaluate model performance, three real-world datasets of individuals in leadership roles at publicly listed companies were used: International, Swiss Large- and Mid-Cap, and Swiss Small-Cap. For each, a corresponding synthetic dataset with 100 randomly generated names was created by combining first and last names from the real dataset. Model performance was evaluated using standard classification outcomes: True Positives (TP), False Positives (FP), True Negatives (TN), and False Negatives (FN). From these, key performance metrics (Precision, Recall, F1 Score, and Accuracy) were derived to assess classification performance.
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/DATA/Images/Analysis_Process.jpg?raw=true" width="100%" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/language_models_in_finance/blob/main/DATA/Images/Analysis_Process.jpg?raw=true" width="100%" />
 
 *Note: Evaluation process.*
 
