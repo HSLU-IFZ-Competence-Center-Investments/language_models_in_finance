@@ -81,7 +81,7 @@ As illustrated in the figures below, enabling RAG consistently improved model pe
 
 Model performance varied considerably depending on the dataset. F1 scores were highest for the international dataset, reflecting the broader web visibility of leadership figures in global companies. Swiss large- and mid-cap firms followed closely, while Swiss small-cap companies posed the greatest challenge due to limited public data. Larger models (e.g., `DeepSeek`, `GPT-4.1`, `Mixtral`) consistently outperformed smaller ones, highlighting the role of model capacity in leveraging retrieved context effectively.
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/language_models_in_finance/blob/main/CODE/plots/combined_radar_plots.jpg" width="100%" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/language_models_in_finance/blob/main/CODE/plots/combined_radar_plots.png" width="100%" />
 
 *Note: Comparison of different language models in terms of different data scopes.*
 
@@ -105,7 +105,7 @@ In compliance-related tasks, false negatives represent a significant risk. The f
 
 Performance gains often came with higher computational costs. While larger models achieved higher F1 scores, they also required longer inference times. Interestingly, some models (e.g., `Phi-4-mini-instruct`) were able to achieve relatively strong performance with significantly lower latency, making them attractive options for real-time or resource-constrained use cases.
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/language_models_in_finance/blob/main/CODE/plots/execution_time_vs_f1_rag_true_by_model_color.jpg" width="100%" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/language_models_in_finance/blob/main/CODE/plots/execution_time_vs_f1_rag_true_by_model_color.png" width="100%" />
 
 *Note: An overview of the execution time of different models and data scopes, related to the model’s F1 score with
 RAG enable.*
