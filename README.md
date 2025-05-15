@@ -1,6 +1,6 @@
 # Language Models in Finance
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/src/Images/Cover_01.jpg?raw=true" width="100%" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/DATA/Images/Cover_01.jpg?raw=true" width="100%" />
 
 ## Initial Situation
 The rise of artificial intelligence (AI) and natural language processing (NLP), particularly through language models (LMs), is enabling new ways for financial institutions to process information and make decisions more efficiently. In regulated sectors like finance, LMs offer the potential to automate tasks such as compliance monitoring while maintaining accuracy and ensuring data privacy. One key use case is the monitoring of Politically Exposed Persons (PEPs), where LMs can reduce manual effort and flag risks in real time by cross-referencing internal and external data. These capabilities help institutions meet regulatory standards, prevent fraud, and avoid reputational damage.
@@ -25,7 +25,7 @@ Mode B (Retrieval-Augmented Generation, RAG) employs a complete RAG pipeline and
 6) LM: The model processes the prompt and responds with a binary decision *Yes* or *No* based on its internal knowledge and the context provided.
 7) Output logging: The model’s output and the corresponding input name are logged to ensure traceability, enabling later evaluation, analysis, and auditability of the inference results.
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/src/Images/Prototypes_Modes.jpg?raw=true" width="100%" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/DATA/Images/Prototypes_Modes.jpg?raw=true" width="100%" />
 
 *Note: General architecture of the prototype.*
 
@@ -47,7 +47,7 @@ To ensure a transparent and structured selection process, models were chosen bas
 
 The evaluation methodology is illustrated in the figure below. To evaluate model performance, three real-world datasets of individuals in leadership roles at publicly listed companies were used: International, Swiss Large- and Mid-Cap, and Swiss Small-Cap. For each, a corresponding synthetic dataset with 100 randomly generated names was created by combining first and last names from the real dataset. Model performance was evaluated using standard classification outcomes: True Positives (TP), False Positives (FP), True Negatives (TN), and False Negatives (FN). From these, key performance metrics (Precision, Recall, F1 Score, and Accuracy) were derived to assess classification performance.
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/src/Images/Analysis_Process.jpg?raw=true" width="100%" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/DATA/Images/Analysis_Process.jpg?raw=true" width="100%" />
 
 *Note: Evaluation process.*
 
@@ -64,15 +64,15 @@ All evaluations were carried out using a standardized pipeline without task-spec
 
 As illustrated in the figures below, enabling RAG consistently improved model performance across all datasets and models. This was especially evident in the international dataset, where rich and up-to-date online information allowed the models to make more accurate classifications. Smaller models like `TinyLlama` struggled to effectively utilize the retrieved context due to their limited capacity. In contrast, larger models such as `GPT-4.1` and `Mixtral-8x7B` achieved significant F1 score improvements with RAG enabled. Due to the clear performance gains, all further evaluations were conducted in RAG mode only.
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/src/plots/plots_f1_comparison_international_scope.png" width="100%" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/CODE/plots/plots_f1_comparison_international_scope.png" width="100%" />
 
 *Note: F1 Score comparison of various language models on the international dataset, with and without RAG.*
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/src/plots/plots_f1_comparison_switzerland_scope.png" width="100%" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/CODE/plots/plots_f1_comparison_switzerland_scope.png" width="100%" />
 
 *Note: F1 Score comparison of various language models on the Switzerland large- and mid-cap dataset, with and without RAG.*
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/src/plots/plots_f1_comparison_switzerland_nebenwerte_scope.png" width="100%" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/CODE/plots/plots_f1_comparison_switzerland_nebenwerte_scope.png" width="100%" />
 
 *Note: F1 Score comparison of various language models on the Switzerland small-cap dataset, with and without RAG.*
 
@@ -88,15 +88,15 @@ Model performance varied considerably depending on the dataset. F1 scores were h
 
 In compliance-related tasks, false negatives represent a significant risk. The following figures report the number of false negatives for the different models and datasets. Some models like `TinyLlama` reported low number of false negatives but at the expenses of precision, resulting in a higher number of false positives. Other models, such as `Zephyr` and `Llama-3.1`, were more conservative and thus missed more true positives. These results highlight the critical need to balance recall and precision when deploying such systems in operational environments.
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/src/plots/fn_comparison_international.png" width="100%" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/CODE/plots/fn_comparison_international.png" width="100%" />
 
 *Note: Comparison of how many false negatives were detected by each model on the international dataset, with RAG.*
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/src/plots/fn_comparison_switzerland.png" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/CODE/plots/fn_comparison_switzerland.png" />
 
 *Note: Comparison of how many false negatives were detected by each model on the Switzerland large- and mid-cap dataset , with RAG.*
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/src/plots/fn_comparison_switzerland_nebenwerte.png" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/CODE/plots/fn_comparison_switzerland_nebenwerte.png" />
 
 *Note: Comparison of how many false negatives were detected by each model on the Switzerland small-cap dataset , with RAG.*
 
