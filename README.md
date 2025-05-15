@@ -64,15 +64,16 @@ All evaluations were carried out using a standardized pipeline without task-spec
 
 As illustrated in the figures below, enabling RAG consistently improved model performance across all datasets and models. This was especially evident in the international dataset, where rich and up-to-date online information allowed the models to make more accurate classifications. Smaller models like `TinyLlama` struggled to effectively utilize the retrieved context due to their limited capacity. In contrast, larger models such as `GPT-4.1` and `Mixtral-8x7B` achieved significant F1 score improvements with RAG enabled. Due to the clear performance gains, all further evaluations were conducted in RAG mode only.
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/CODE/plots/plots_f1_comparison_international_scope.png" width="100%" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/language_models_in_finance/blob/main/CODE/plots/plots_f1_comparison_international_scope.png" width="100%" />
 
 *Note: F1 Score comparison of various language models on the international dataset, with and without RAG.*
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/CODE/plots/plots_f1_comparison_switzerland_scope.png" width="100%" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/language_models_in_finance/blob/main/CODE/plots/plots_f1_comparison_switzerland_scope.png" width="100%" />
+
 
 *Note: F1 Score comparison of various language models on the Switzerland large- and mid-cap dataset, with and without RAG.*
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/CODE/plots/plots_f1_comparison_switzerland_nebenwerte_scope.png" width="100%" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/language_models_in_finance/blob/main/CODE/plots/plots_f1_comparison_switzerland_nebenwerte_scope.png" width="100%" />
 
 *Note: F1 Score comparison of various language models on the Switzerland small-cap dataset, with and without RAG.*
 
@@ -88,15 +89,15 @@ Model performance varied considerably depending on the dataset. F1 scores were h
 
 In compliance-related tasks, false negatives represent a significant risk. The following figures report the number of false negatives for the different models and datasets. Some models like `TinyLlama` reported low number of false negatives but at the expenses of precision, resulting in a higher number of false positives. Other models, such as `Zephyr` and `Llama-3.1`, were more conservative and thus missed more true positives. These results highlight the critical need to balance recall and precision when deploying such systems in operational environments.
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/CODE/plots/fn_comparison_international.png" width="100%" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/language_models_in_finance/blob/main/CODE/plots/fn_comparison_international.png" width="100%" />
 
 *Note: Comparison of how many false negatives were detected by each model on the international dataset, with RAG.*
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/CODE/plots/fn_comparison_switzerland.png" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/language_models_in_finance/blob/main/CODE/plots/fn_comparison_switzerland.png" />
 
 *Note: Comparison of how many false negatives were detected by each model on the Switzerland large- and mid-cap dataset , with RAG.*
 
-<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/Compliance_LM_2025/blob/main/language_models_in_finance/CODE/plots/fn_comparison_switzerland_nebenwerte.png" />
+<img src="https://github.com/HSLU-IFZ-Competence-Center-Investments/language_models_in_finance/blob/main/CODE/plots/fn_comparison_switzerland_nebenwerte.png" />
 
 *Note: Comparison of how many false negatives were detected by each model on the Switzerland small-cap dataset , with RAG.*
 
