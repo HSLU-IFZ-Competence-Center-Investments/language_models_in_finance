@@ -111,5 +111,5 @@ Performance gains often came with higher computational costs. While larger model
 RAG enable.*
 
 ### Related Report
-The report has been uploaded to the repository (add link) and is available publicly. 
+The [report](https://github.com/HSLU-IFZ-Competence-Center-Investments/language_models_in_finance/blob/main/Language_Models_Report_2025.pdf) has been uploaded to the repository and is available publicly. 
 
